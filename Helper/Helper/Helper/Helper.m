@@ -13,7 +13,18 @@
 
 #pragma - app 相关信息
 
++ (NSString *)documentsPath
+{
+    return [NSHomeDirectory()stringByAppendingPathComponent:@"Documents"];
+}
 
++ (void)openAppSettings
+{
+    NSURL*url =[NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    if([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
+}
 + (NSString *)appCurrentVersion
 {
     return  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
@@ -41,7 +52,7 @@
     return sharedDateFormatterInstance;
 }
 
-// yyyy-MM-dd 转 MM月dd日
+#pragma - yyyy-MM-dd 转 MM月dd日
 + (NSString *)dateStringToTextString:(NSString *)datestring
 {
     NSDateFormatter *dateFormatter = [Helper sharedDateFormatter];

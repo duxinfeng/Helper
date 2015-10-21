@@ -12,11 +12,23 @@
 @interface Helper : NSObject
 
 /**
+ *  app 沙盒路径
+ *
+ *  @return Documents 目录
+ */
++ (NSString *)documentsPath;
+
+/**
  *  app 当前版本
  *
  *  @return app 当前版本
  */
 + (NSString *)appCurrentVersion;
+
+/**
+ *  打开跳转到App设置页面，设置通知、定位等
+ */
++ (void)openAppSettings;
 
 /**
  *  跳转到app的评论页
